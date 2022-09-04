@@ -16,16 +16,16 @@ let num1 = 0
 let num2 = 0
 let numHolder = []
 
-// const storeNum2 = () => {
-//     numberBtnsAll.forEach(numbBtn => {
-//         numbBtn.addEventListener('click', function(){
-//             console.log('hey')
-//             num2 = Number(numbBtn.value)
-//             displayedVal.textContent = `${num2}`
-//             console.log(num2)
-//         })
-//     })
-// } 
+const storeNum2 = () => {
+    numberBtnsAll.forEach(numbBtn => {
+        numbBtn.addEventListener('click', function(){
+            console.log('hey')
+            num2 = Number(numbBtn.value)
+            displayedVal.textContent = `${num2}`
+            console.log(num2)
+        })
+    })
+} 
 
 
 const getOperator = () => {
@@ -50,7 +50,7 @@ const getOperator = () => {
             
         })
     })
-    // storeNum1()
+    storeNum2()
     console.log(numHolder)
 }
 
