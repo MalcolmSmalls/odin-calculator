@@ -14,9 +14,22 @@ let operation
 
 let num1 = 0
 let num2 = 0
+let numHolder = []
+
+// const storeNum2 = () => {
+//     numberBtnsAll.forEach(numbBtn => {
+//         numbBtn.addEventListener('click', function(){
+//             console.log('hey')
+//             num2 = Number(numbBtn.value)
+//             displayedVal.textContent = `${num2}`
+//             console.log(num2)
+//         })
+//     })
+// } 
 
 
 const getOperator = () => {
+    numHolder.push(num1)
     let displayOp
     operators.forEach(op => {
         op.addEventListener('click', function(){
@@ -34,8 +47,11 @@ const getOperator = () => {
             }
             console.log(operation)
             displayedVal.textContent += `${displayOp}`
+            
         })
     })
+    // storeNum1()
+    console.log(numHolder)
 }
 
 
@@ -46,10 +62,11 @@ const storeNum1 = () => {
             num1 = Number(numbBtn.value)
             displayedVal.textContent = `${num1}`
             console.log(num1)
+            getOperator()
         })
     })
-    getOperator()
 } 
+
 
 storeNum1()
 
