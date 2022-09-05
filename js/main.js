@@ -16,16 +16,7 @@ let num1 = ""
 let num2 = 0
 let numHolder = []
 
-// const storeNum2 = () => {
-//     numberBtnsAll.forEach(numbBtn => {
-//         numbBtn.addEventListener('click', function(){
-//             console.log('hey')
-//             num2 = Number(numbBtn.value)
-//             displayedVal.textContent = `${num2}`
-//             console.log(num2)
-//         })
-//     })
-// } 
+
 
 
 const getOperator = () => {
@@ -75,16 +66,24 @@ const getOperator = () => {
 
 // storeNum1()
 
+const storeNum2 = () => {
+    numberBtnsAll.forEach(numbBtn => {
+        numbBtn.addEventListener('click', function(){
+            console.log('hey')
+            num2 = Number(numbBtn.value)
+            displayedVal.textContent = `${num2}`
+            console.log(num2)
+        })
+    })
+} 
+
 let displayOp = ""
 
-numberBtnsAll.forEach(numbBtn => {
-    numbBtn.addEventListener('click', function(){
-        num1 += numbBtn.value
-        displayedVal.textContent = `${num1}`
-    })
-    
-})
 
+
+
+
+const getOp = () => {
 operators.forEach(op => {
     op.addEventListener('click', function(){
         if(num1 === ""){
@@ -104,7 +103,7 @@ operators.forEach(op => {
         }else{
             return
         }
-        // storeNum2()
+        storeNum2()
         displayedVal.textContent += `${displayOp}`
         console.log(operation) 
 
@@ -112,4 +111,15 @@ operators.forEach(op => {
     }})
 
 })
+}
+
+if(num1 === ""){
+    numberBtnsAll.forEach(numbBtn => {
+        numbBtn.addEventListener('click', function(){
+            num1 += numbBtn.value
+            displayedVal.textContent = `${num1}`
+        }) 
+    })
+    getOp()
+}
 
