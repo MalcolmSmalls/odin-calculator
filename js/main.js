@@ -10,61 +10,11 @@ const operator = (operation) => operation(num1,num2)
 const numberBtnsAll = document.querySelectorAll('.number')
 const displayedVal = document.querySelector('.display')
 const operators = document.querySelectorAll('.operators')
-let operation = ""
+let operation
 
 let num1 = ""
 let num2 = 0
 let numHolder = []
-
-
-
-
-const getOperator = () => {
-
-    let displayOp = ""
-    operators.forEach(op => {
-        op.addEventListener('click', function(){
-            numHolder.push(num1)
-            operation = op.value
-            if(operation === "multiply"){
-                displayOp = "*"
-            }else if(operation === "divide"){
-                displayOp = "/"
-            }else if(operation === "add"){
-                displayOp = "+"
-            }else if(operation === "subtract"){
-                displayOp = "-"
-            }else{
-                return
-            }
-            // storeNum2()
-  
-            return         
-        })
-        displayedVal.textContent += `${displayOp}`
-        console.log(operation) 
-    })
-
-
-
-    console.log(numHolder)
-}
-
-
-// const storeNum1 = () => {
-//     numberBtnsAll.forEach(numbBtn => {
-//         numbBtn.addEventListener('click', function(){
-//             console.log('hey')
-//             num1 = Number(numbBtn.value)
-//             displayedVal.textContent = `${num1}`
-//             console.log(num1)
-//             getOperator()
-//         })
-//     })
-// } 
-
-
-// storeNum1()
 
 const storeNum2 = () => {
     numberBtnsAll.forEach(numbBtn => {
@@ -77,49 +27,51 @@ const storeNum2 = () => {
     })
 } 
 
-let displayOp = ""
 
+const getOperator = () => {
 
-
-
-
-const getOp = () => {
-operators.forEach(op => {
-    op.addEventListener('click', function(){
-        if(num1 === ""){
-            return
-        }else{
-        numHolder.push(num1)
-        console.log(numHolder)
-        operation = op.value
-        if(operation === "multiply"){
-            displayOp = "*"
-        }else if(operation === "divide"){
-            displayOp = "/"
-        }else if(operation === "add"){
-            displayOp = "+"
-        }else if(operation === "subtract"){
-            displayOp = "-"
-        }else{
-            return
-        }
-        storeNum2()
-        displayedVal.textContent += `${displayOp}`
-        console.log(operation) 
-
-        return         
-    }})
-
-})
+    let displayOp
+    operators.forEach(op => {
+        op.addEventListener('click', function(){
+            numHolder.push(num1)
+            console.log(numHolder)
+            operation = op.value
+            if(operation === "multiply"){
+                displayOp = "*"
+            }else if(operation === "divide"){
+                displayOp = "/"
+            }else if(operation === "add"){
+                displayOp = "+"
+            }else if(operation === "subtract"){
+                displayOp = "-"
+            }else{
+                return
+            }
+            console.log(operation)
+            displayedVal.textContent += `${displayOp}`
+            
+        })
+    })
+    // storeNum2()
+    // console.log(numHolder)
 }
 
-if(num1 === ""){
+
+const storeNum1 = () => {
     numberBtnsAll.forEach(numbBtn => {
         numbBtn.addEventListener('click', function(){
+            console.log('hey')
             num1 += numbBtn.value
             displayedVal.textContent = `${num1}`
-        }) 
+            console.log(num1)
+
+        })
+
     })
-    getOp()
-}
+
+} 
+
+
+storeNum1()
+getOperator()
 
