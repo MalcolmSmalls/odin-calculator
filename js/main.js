@@ -35,12 +35,12 @@ let operation
 let num1 = ""
 let num2 = ""
 let numHolder = []
-let total=0
+let total
 
 
 
 const storeNum2 = () => {
-    console.log("yrrrp")
+    numHolder.push(displayOp)
     numberBtnsAll.forEach(numbBtn => {
         numbBtn.addEventListener('click', function(){
             console.log('hey')
@@ -59,6 +59,10 @@ operators.forEach(op => {
             return
         }else if (num1 !== "" && num2 !== ""){
             numHolder.push(num2)
+            total = Number(numHolder)
+            console.log(total)
+            displayOp = operation
+            displayedVal.textContent += `${displayOp}`
             console.log('test')
 
         
@@ -66,18 +70,19 @@ operators.forEach(op => {
         numHolder.push(num1)
         console.log(numHolder)
         operation = op.value
-        if(operation === "*"){
-            displayOp = "*"
-        }else if(operation === "/"){
-            displayOp = "/"
-        }else if(operation === "+"){
-            displayOp = "+"
-        }else if(operation === "-"){
-            displayOp = "-"
-        }else{
-            return
-        }
-        console.log(operation)
+        displayOp = operation
+        // if(operation === "*"){
+        //     displayOp = "*"
+        // }else if(operation === "/"){
+        //     displayOp = "/"
+        // }else if(operation === "+"){
+        //     displayOp = "+"
+        // }else if(operation === "-"){
+        //     displayOp = "-"
+        // }else{
+        //     return
+        // }
+        // console.log(operation)
         displayedVal.textContent += `${displayOp}`
     //    numberBtnsAll.forEach(numberBtn => {
     //     numberBtn.removeEventListener('click', getNum)
