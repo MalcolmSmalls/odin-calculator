@@ -34,15 +34,11 @@ operatorBtns.forEach(operatorBtn => {
         if(num === "" && total === undefined){
             return
         }else if(num !== "" && total === undefined && numHolder[1] === undefined){
-            console.log('this ran')
             numHolder.push(+num)
             numHolder.push(operation)
             displayedVal.textContent += `${operation}`
             num = ""
-            console.log(numHolder)
-            console.log("deez")
         }else if(numHolder[0] !== undefined && numHolder[1] !== undefined && total === undefined){
-            console.log('shiddd')
             numHolder.push(+num)
             numHolder.push(operation)
             if(numHolder[1] === "*"){
@@ -58,93 +54,21 @@ operatorBtns.forEach(operatorBtn => {
                 total = numHolder[0]-numHolder[2]
                 num = ""
             }
-            console.log(total)
-            
-            displayOp = total + operation
-            displayedVal.textContent = `${displayOp}`
-
-        }else if(total !== undefined){
             numHolder.shift()
             numHolder.shift()
             numHolder.shift()
             numHolder.unshift(total)
-            console.log('heye3')
-            // numHolder.shift().unshift(total)
-            console.log(numHolder)
+            
+            displayOp = total + operation
+            displayedVal.textContent = `${displayOp}`
+            total = undefined
+
         }
+        // else if(total !== undefined){
+        //     console.log('heye3')
+        //     // numHolder.shift().unshift(total)
+        //     console.log(numHolder)
+        // }
     })
 })
-
-
-
-
-// const storeNum2 = () => {
-//     numHolder.push(displayOp)
-//     numberBtnsAll.forEach(numbBtn => {
-//         numbBtn.addEventListener('click', function(){
-//             console.log('hey')
-//             num2 += numbBtn.value
-//             displayedVal.textContent = `${num2}`
-//             console.log(num2)
-//         })
-//     })
-// } 
-
-
-
-// operators.forEach(op => {
-//     op.addEventListener('click', function(){
-//         if(num1 === ""){
-//             return
-//         }else if (num1 !== "" && num2 !== ""){
-//             numHolder.push(+num2)
-//             num1 = ""
-//             num2 = ""
-//             if(operation === "*"){
-//                 total = numHolder[0]*numHolder[2]
-//                 num1 = ""
-//                 num2 = ""
-//             }else if(operation === "/"){
-//                 total = numHolder[0]/numHolder[2]
-//                 num1 = ""
-//                 num2 = ""
-//             }else if(operation === "+"){
-//                 total = numHolder[0]+numHolder[2]
-//                 num1 = ""
-//                 num2 = ""
-//             }else if(operation === "-"){
-//                 total = numHolder[0]-numHolder[2]
-//                 num1 = ""
-//                 num2 = ""
-//             }
-//             console.log(total)
-            
-//             displayOp = total + operation
-//             displayedVal.textContent = `${displayOp}`
-
-
-        
-//         }else{
-//         numHolder.push(+num1)
-//         console.log(numHolder)
-//         operation = op.value
-//         displayOp = operation
-//         displayedVal.textContent += `${displayOp}`
-//         storeNum2()
-//     }})
-
-// })
-
-
-// let foo = ""
-
-// const getNum = (e) => {
-//         num1 += e.currentTarget.value
-//         displayedVal.textContent = `${num1}`
-//     }
-
-
-
-
-
 
