@@ -61,29 +61,38 @@ operators.forEach(op => {
             numHolder.push(+num2)
             num1 = ""
             num2 = ""
-        if(operation === "*"){
-            total = numHolder[0]*numHolder[2]
-            num1 = ""
-            num2 = ""
-        }else if(operation === "/"){
-            total = numHolder[0]/numHolder[2]
-            num1 = ""
-            num2 = ""
-        }else if(operation === "+"){
-            total = numHolder[0]+numHolder[2]
-            num1 = ""
-            num2 = ""
-        }else if(operation === "-"){
-            total = numHolder[0]-numHolder[2]
-            num1 = ""
-            num2 = ""
-        }
+            if(operation === "*"){
+                total = numHolder[0]*numHolder[2]
+                num1 = ""
+                num2 = ""
+            }else if(operation === "/"){
+                total = numHolder[0]/numHolder[2]
+                num1 = ""
+                num2 = ""
+            }else if(operation === "+"){
+                total = numHolder[0]+numHolder[2]
+                num1 = ""
+                num2 = ""
+            }else if(operation === "-"){
+                total = numHolder[0]-numHolder[2]
+                num1 = ""
+                num2 = ""
+            }
             // total = numHolder.join("")
             console.log(total)
             
             displayOp = total + operation
             displayedVal.textContent = `${displayOp}`
             console.log('test')
+            number1.addEventListener('click', getNum,false)
+            number2.addEventListener('click', getNum)
+            number3.addEventListener('click', getNum)
+            number4.addEventListener('click', getNum)
+            number5.addEventListener('click', getNum)
+            number6.addEventListener('click', getNum)
+            number7.addEventListener('click', getNum)
+            number8.addEventListener('click', getNum)
+            number9.addEventListener('click', getNum)
 
         
         }else{
