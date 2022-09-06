@@ -58,16 +58,36 @@ operators.forEach(op => {
         if(num1 === ""){
             return
         }else if (num1 !== "" && num2 !== ""){
-            numHolder.push(num2)
-            total = Number(numHolder)
+            numHolder.push(+num2)
+            num1 = ""
+            num2 = ""
+        if(operation === "*"){
+            total = numHolder[0]*numHolder[2]
+            num1 = ""
+            num2 = ""
+        }else if(operation === "/"){
+            total = numHolder[0]/numHolder[2]
+            num1 = ""
+            num2 = ""
+        }else if(operation === "+"){
+            total = numHolder[0]+numHolder[2]
+            num1 = ""
+            num2 = ""
+        }else if(operation === "-"){
+            total = numHolder[0]-numHolder[2]
+            num1 = ""
+            num2 = ""
+        }
+            // total = numHolder.join("")
             console.log(total)
-            displayOp = operation
-            displayedVal.textContent += `${displayOp}`
+            
+            displayOp = total + operation
+            displayedVal.textContent = `${displayOp}`
             console.log('test')
 
         
         }else{
-        numHolder.push(num1)
+        numHolder.push(+num1)
         console.log(numHolder)
         operation = op.value
         displayOp = operation
