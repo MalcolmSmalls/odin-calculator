@@ -40,19 +40,21 @@ operatorBtns.forEach(operatorBtn => {
             displayedVal.textContent += `${operation}`
             num = ""
             console.log(numHolder)
-        }else if(numHolder[0] !== undefined && numHolder[1] !== undefined){
+            console.log("deez")
+        }else if(numHolder[0] !== undefined && numHolder[1] !== undefined && total === undefined){
+            console.log('shiddd')
             numHolder.push(+num)
             numHolder.push(operation)
-            if(operation === "*"){
+            if(numHolder[1] === "*"){
                 total = numHolder[0]*numHolder[2]
                 num = ""
-            }else if(operation === "/"){
+            }else if(numHolder[1] === "/"){
                 total = numHolder[0]/numHolder[2]
                 num = ""
-            }else if(operation === "+"){
+            }else if(numHolder[1] === "+"){
                 total = numHolder[0]+numHolder[2]
                 num = ""
-            }else if(operation === "-"){
+            }else if(numHolder[1] === "-"){
                 total = numHolder[0]-numHolder[2]
                 num = ""
             }
@@ -60,6 +62,15 @@ operatorBtns.forEach(operatorBtn => {
             
             displayOp = total + operation
             displayedVal.textContent = `${displayOp}`
+
+        }else if(total !== undefined){
+            numHolder.shift()
+            numHolder.shift()
+            numHolder.shift()
+            numHolder.unshift(total)
+            console.log('heye3')
+            // numHolder.shift().unshift(total)
+            console.log(numHolder)
         }
     })
 })
