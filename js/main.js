@@ -11,6 +11,7 @@ const displayedVal = document.querySelector('.display')
 const operatorBtns = document.querySelectorAll('.operators')
 const btnsTotal = document.querySelectorAll('button')
 const equalBtn = document.querySelector('.equals')
+const clearBtn = document.querySelector('.clear')
 let operation
 
 let num = ""
@@ -18,6 +19,7 @@ let numHolder = []
 let total
 
 let displayOp
+
 
 
 equalBtn.addEventListener('click', function(){
@@ -48,6 +50,15 @@ equalBtn.addEventListener('click', function(){
     }
 })
 
+clearBtn.addEventListener('click', function(){
+    if(displayedVal.textContent === ''){
+        numHolder = []
+        num = ""
+    }else{
+        num = ""
+        displayedVal.textContent = ""
+    }
+})
 
 numberBtnsAll.forEach(numberBtn => {
     numberBtn.addEventListener('click', function(){
@@ -94,11 +105,6 @@ operatorBtns.forEach(operatorBtn => {
             total = undefined
 
         }
-        // else if(total !== undefined){
-        //     console.log('heye3')
-        //     // numHolder.shift().unshift(total)
-        //     console.log(numHolder)
-        // }
     })
 })
 
