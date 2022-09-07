@@ -38,7 +38,13 @@ equalBtn.addEventListener('click', function(){
             total = numHolder[0]-numHolder[2]
             num = ""
         }
-        console.log(total)
+        numHolder.shift()
+        numHolder.shift()
+        numHolder.shift()
+        numHolder.unshift(total)
+        displayOp = total
+        displayedVal.textContent = `${displayOp}`
+        total = undefined
     }
 })
 
@@ -54,7 +60,9 @@ operatorBtns.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', function(){
         operation = operatorBtn.value
         if(num === "" && total === undefined){
-            return
+            numHolder.push(operation)
+            displayOp = numHolder[0] + operation
+            displayedVal.textContent = `${displayOp}`
         }else if(num !== "" && total === undefined && numHolder[1] === undefined){
             numHolder.push(+num)
             numHolder.push(operation)
