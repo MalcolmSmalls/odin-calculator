@@ -10,6 +10,7 @@ const numberBtnsAll = document.querySelectorAll('.nums')
 const displayedVal = document.querySelector('.display')
 const operatorBtns = document.querySelectorAll('.operators')
 const btnsTotal = document.querySelectorAll('button')
+const equalBtn = document.querySelector('.equals')
 let operation
 
 let num = ""
@@ -19,12 +20,33 @@ let total
 let displayOp
 
 
+equalBtn.addEventListener('click', function(){
+    if(num === ''){
+        return
+    }else if(num !== ''){
+        numHolder.push(+num)
+        if(numHolder[1] === "*"){
+            total = numHolder[0]*numHolder[2]
+            num = ""
+        }else if(numHolder[1] === "/"){
+            total = numHolder[0]/numHolder[2]
+            num = ""
+        }else if(numHolder[1] === "+"){
+            total = numHolder[0]+numHolder[2]
+            num = ""
+        }else if(numHolder[1] === "-"){
+            total = numHolder[0]-numHolder[2]
+            num = ""
+        }
+        console.log(total)
+    }
+})
+
 
 numberBtnsAll.forEach(numberBtn => {
     numberBtn.addEventListener('click', function(){
         num += numberBtn.value
         displayedVal.textContent = `${num}`
-        console.log(num)
     })
 })
 
